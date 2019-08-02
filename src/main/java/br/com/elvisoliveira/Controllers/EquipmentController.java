@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.View;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -37,6 +38,6 @@ public class EquipmentController {
 
     @GetMapping("/{id}")
     public EquipmentEntity getOne(@PathVariable("id") Long id) {
-        return service.getById(id);
+            return service.getById(id);
     }
 }

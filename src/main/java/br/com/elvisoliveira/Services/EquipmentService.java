@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,8 +16,8 @@ public class EquipmentService {
 
     private static final Logger logger = LogManager.getLogger(MaintenanceService.class);
 
-    private String NO_RECORD = "We couldn't find an equipment with the given id";
     private String NO_DATA = "There is no equipments on the database";
+    private String NO_RECORD = "We couldn't find an equipment with the given id";
 
     @Autowired
     EquipmentRepository repository;
