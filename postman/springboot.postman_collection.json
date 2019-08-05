@@ -1,0 +1,165 @@
+{
+	"info": {
+		"_postman_id": "8304a498-0c37-4828-a92c-45b3c0fc37df",
+		"name": "Endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Equipments",
+			"item": [
+				{
+					"name": "Browse",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{HOST}}:{{PORT}}/equipment/all",
+							"protocol": "http",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"equipment",
+								"all"
+							]
+						},
+						"description": "List inventory with all equipments"
+					},
+					"response": []
+				},
+				{
+					"name": "Consult",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{HOST}}:{{PORT}}/equipment/101",
+							"protocol": "http",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"equipment",
+								"101"
+							]
+						},
+						"description": "Consult a specific equipment through its id"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Maintenance Orders",
+			"item": [
+				{
+					"name": "Browse",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{HOST}}:{{PORT}}/maintenance/browse",
+							"protocol": "http",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"maintenance",
+								"browse"
+							]
+						},
+						"description": "Consult all existing maintenance orders"
+					},
+					"response": []
+				},
+				{
+					"name": "Consult",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{HOST}}:{{PORT}}/maintenance/2",
+							"protocol": "http",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"maintenance",
+								"2"
+							]
+						},
+						"description": "See a specific order by its id"
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\": \"2003-05-16\",\r\n    \"equipment\": 2\r\n}"
+						},
+						"url": {
+							"raw": "http://{{HOST}}:{{PORT}}/maintenance",
+							"protocol": "http",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"maintenance"
+							]
+						},
+						"description": "Create a maintenance order"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"date\": \"2003-05-17\",\r\n    \"equipment\": 2\r\n}"
+						},
+						"url": {
+							"raw": "http://{{HOST}}:{{PORT}}/maintenance",
+							"protocol": "http",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"maintenance"
+							]
+						},
+						"description": "Change an existing maintenance order"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

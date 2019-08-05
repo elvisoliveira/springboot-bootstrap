@@ -33,7 +33,14 @@ public class EquipmentServiceTest {
 
     @Test
     public void testGetByIdWithCorrectIdNumber_shouldReturnEquipmentEntity() {
-        Optional<EquipmentEntity> employee = Optional.of(new EquipmentEntity());
-        Mockito.when(repository.findById(Mockito.any())).thenReturn(employee);
+        Long id = Long.valueOf(0);
+        String name = "Drilling Machine";
+        EquipmentEntity equipEntity = new EquipmentEntity();
+        equipEntity.setId(id);
+        equipEntity.setName(name);
+        Mockito.when(repository.findById(Mockito.any())).thenReturn(Optional.of(equipEntity));
+        EquipmentEntity equip = service.getById(Mockito.any());
+        assertEquals(id, equip.getId());
+        assertEquals(name, equip.getName());
     }
 }

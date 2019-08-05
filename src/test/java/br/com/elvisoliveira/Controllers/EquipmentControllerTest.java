@@ -42,7 +42,7 @@ public class EquipmentControllerTest {
     }
 
     @Test
-    public void testIfGetOneWillReturnProperEntity_shouldReturnProperValues() {
+    public void testIfGetByIdWillReturnProperEntity_shouldReturnProperValues() {
         Long id = Long.valueOf(0);
         String name = "Drilling Machine";
         EquipmentEntity equipEntity = new EquipmentEntity();
