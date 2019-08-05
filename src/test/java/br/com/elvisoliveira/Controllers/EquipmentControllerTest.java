@@ -30,22 +30,27 @@ public class EquipmentControllerTest {
     }
 
     @Test
-    public void testRedirect() {
+    public void testServerSideRedirection_shouldReturnRedirectionString() {
         ModelAndView mav = controller.redirect(request);
         assertEquals(mav.getViewName(), new ModelAndView("redirect:/equipment/all").getViewName());
     }
 
     @Test
-    public void testGetAll() {
-        ArrayList<EquipmentEntity> equips = new ArrayList<EquipmentEntity>();
-        Mockito.when(service.getAll()).thenReturn(equips);
-        assertEquals(equips, controller.getAll());
+    public void testIfControllerWontManipulateServiceResults_shouldReturnEmptyList() {
+        Mockito.when(service.getAll()).thenReturn(new ArrayList<EquipmentEntity>());
+        assertEquals(0, controller.getAll().size());
     }
 
     @Test
-    public void testGetOne() {
-        EquipmentEntity equip = new EquipmentEntity();
-        Mockito.when(service.getById(Mockito.any())).thenReturn(equip);
-        assertEquals(equip, controller.getOne(Mockito.any()));
+    public void testIfGetOneWillReturnProperEntity_shouldReturnProperValues() {
+        Long id = Long.valueOf(0);
+        String name = "Drilling Machine";
+        EquipmentEntity equipEntity = new EquipmentEntity();
+        equipEntity.setId(id);
+        equipEntity.setName(name);
+        Mockito.when(service.getById(Mockito.any())).thenReturn(equipEntity);
+        EquipmentEntity equip = controller.getOne(Mockito.any());
+        assertEquals(id, equip.getId());
+        assertEquals(name, equip.getName());
     }
 }
