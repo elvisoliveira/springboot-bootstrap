@@ -35,7 +35,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://{{HOST}}:{{PORT}}/equipment/101",
+							"raw": "http://{{HOST}}:{{PORT}}/equipment/1",
 							"protocol": "http",
 							"host": [
 								"{{HOST}}"
